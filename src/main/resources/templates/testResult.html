@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NICEPAY PAY RESULT(UTF-8)</title>
+<m eta charset="utf-8">
+</head>
+<body>
+
+    <h2 style="text-align: center;">나이스페이 결제 결과</h2>
+
+    <div th:if="${result != null}">
+        <div th:if="${#strings.equals(result.ResultCode, '3001') or #strings.equals(result.ResultCode, '4000') or #strings.equals(result.ResultCode, 'A000') or #strings.equals(result.ResultCode, '4100') or #strings.equals(result.ResultCode, '0000')}" class="success">
+            결제가 성공적으로 완료되었습니다.
+        </div>
+        <div th:unless="${#strings.equals(result.ResultCode, '3001') or #strings.equals(result.ResultCode, '4000') or #strings.equals(result.ResultCode, 'A000') or #strings.equals(result.ResultCode, '4100') or #strings.equals(result.ResultCode, '0000')}" class="fail">
+            결제에 실패하였습니다. [코드: <span th:text="${result.ResultCode}"></span>]
+        </div>
+
+        <table>
+            <caption>결제 상세 정보</caption>
+            <tr>
+                <th>거래번호 (TID)</th>
+                <td th:text="${result.TID}"></td>
+            </tr>
+            <tr>
+                <th>상품명</th>
+                <td th:text="${result.GoodsName}"></td>
+            </tr>
+            <tr>
+                <th>결제수단</th>
+                <td th:text="${result.PayMethod}"></td>
+            </tr>
+            <tr>
+                <th>결제금액</th>
+                <td th:text="${result.Amt}"></td>
+            </tr>
+            <tr>
+                <th>결과코드</th>
+                <td th:text="${result.ResultCode}"></td>
+            </tr>
+            <tr>
+                <th>결과메시지</th>
+                <td th:text="${result.ResultMsg}"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div th:unless="${result != null}" class="fail">
+        결제 결과 데이터가 존재하지 않습니다.
+    </div>
+
+</body>
+</html>
