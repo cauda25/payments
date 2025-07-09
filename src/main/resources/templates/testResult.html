@@ -49,5 +49,32 @@
         결제 결과 데이터가 존재하지 않습니다.
     </div>
 
+
+     <!-- <table>
+        <tr th:if="${ResultCode == '9999'}">
+            <th>승인 통신 실패로 인한 망취소 처리 진행 결과</th>
+            <td th:text="'[' + ${ResultCode} + ']' + ${ResultMsg}"></td>
+        </tr>
+        <tr th:if="${ResultCode != '9999'}">
+            <th>결과 내용</th>
+            <td th:text="'[' + ${ResultCode} + ']' + ${ResultMsg}"></td>
+        </tr>
+        <tr th:if="${PayMethod != null}">
+            <th>결제수단</th>
+            <td th:text="${PayMethod}"></td>
+        </tr>
+        <tr th:if="${GoodsName != null}">
+            <th>상품명</th>
+            <td th:text="${GoodsName}"></td>
+        </tr>
+        <tr th:if="${Amt != null}">
+            <th>결제 금액</th>
+            <td th:text="${Amt}"></td>
+        </tr>
+        <tr th:if="${TID != null}">
+            <th>거래 번호</th>
+            <td th:text="${TID}"></td>
+        </tr>
+    </table> -->
 </body>
 </html>
